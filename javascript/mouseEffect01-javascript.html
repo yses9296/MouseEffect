@@ -296,15 +296,25 @@
         // }
 
         // each()
-        document.querySelectorAll(".mouseCont span").forEach((element, index) => {
-            element.addEventListener("mouseover", function(){
-                document.querySelector(".cursor").classList.add("style"+(index+1));
+        // document.querySelectorAll(".mouseCont span").forEach((element, index) => {
+        //     element.addEventListener("mouseover", function(){
+        //         document.querySelector(".cursor").classList.add("style"+(index+1));
+        //     });//mouseover
+        //     element.addEventListener("mouseout", function(){
+        //         document.querySelector(".cursor").classList.remove("style"+(index+1));
+        //     });//mouseout
+        // });
+
+        // getAttribute
+        document.querySelectorAll(".mouseCont span").forEach(el => {
+            let style = el.getAttribute("class");
+            el.addEventListener("mouseover", function(){
+                document.querySelector(".cursor").classList.add(style);
             });//mouseover
-            element.addEventListener("mouseout", function(){
-                document.querySelector(".cursor").classList.remove("style"+(index+1));
+            el.addEventListener("mouseout", function(){
+                document.querySelector(".cursor").classList.remove(style);
             });//mouseout
         });
-
 
     </script>
     <!-- //script -->
