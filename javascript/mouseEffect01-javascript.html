@@ -253,5 +253,60 @@
         </ul>
     </div>
     <!-- //info -->
+    <!-- script -->
+    <script>
+        // PrintOut
+        window.addEventListener("mousemove", (event) => {
+            document.querySelector(".clientX").innerText = event.clientX;
+            document.querySelector(".clientY").innerText = event.clientY;
+            document.querySelector(".offsetX").innerText = event.offsetX;
+            document.querySelector(".offsetY").innerText = event.offsetY;
+            document.querySelector(".pageX").innerText = event.pageX;
+            document.querySelector(".pageY").innerText = event.pageY;
+            document.querySelector(".screenX").innerText = event.screenX;
+            document.querySelector(".screenY").innerText = event.screenY;
+        });
+
+        // Mouse Move
+        window.addEventListener("mousemove", (event) => {
+            // document.querySelector(".cursor").style.left = event.clientX - 25 +"px";
+            // document.querySelector(".cursor").style.top = event.clientY - 25 +"px";
+
+            let x = event.clientX - 25 + "px";
+            let y = event.clientY - 25 + "px";
+            document.querySelector(".cursor").style.cssText = "left:"+x + "; top: "+y;
+        });
+
+        // Mouse Over
+        // document.querySelector(".mouseCont .style1").addEventListener("mouseover", function(){
+        //     document.querySelector(".cursor").classList.add("style1");
+        // });//mouseover 01
+        // document.querySelector(".mouseCont .style1").addEventListener("mouseout", function(){
+        //     document.querySelector(".cursor").classList.remove("style1");
+        // });//mouseout 01
+
+        // for문
+        // for( let i =1; i <= 6; i++){
+        //     document.querySelector(".mouseCont .style"+i).addEventListener("mouseover", function(){
+        //         document.querySelector(".cursor").classList.add("style"+i);
+        //     });//mouseover 01
+        //     document.querySelector(".mouseCont .style"+i).addEventListener("mouseout", function(){
+        //         document.querySelector(".cursor").classList.remove("style"+i);
+        //     });//mouseout 01
+        // }
+
+        // each()
+        document.querySelectorAll(".mouseCont span").forEach((element, index) => {
+            element.addEventListener("mouseover", function(){
+                document.querySelector(".cursor").classList.add("style"+(index+1));
+            });//mouseover
+            element.addEventListener("mouseout", function(){
+                document.querySelector(".cursor").classList.remove("style"+(index+1));
+            });//mouseout
+        });
+
+
+    </script>
+    <!-- //script -->
 </body>
 </html>
