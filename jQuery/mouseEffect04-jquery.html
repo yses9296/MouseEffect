@@ -135,7 +135,7 @@
             height: 100vh;
             overflow: hidden;
             font-family: 'NEXONLv1Gothic';
-            /* cursor: none; */
+            cursor: none;
         }
         .mouseCont p {
             font-size: 2vw;
@@ -159,8 +159,12 @@
             border-radius: 50%;
             border: 5px solid #fff;
             background-image: url(https://webstoryboy.github.io/ScriptEffect/webstoryboy/assets/img/bg10.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: -1;
         }
-
     </style>
 </head>
 <body class="mouse bg">
@@ -222,11 +226,10 @@
         const width = cursor.width()/2;
         const height = cursor.height()/2;
 
-
         $(window).mousemove(function(e){
             // printout
-            $(".pageX").text(e.pageX);
-            $(".pageY").text(e.pageY);
+            $(".pageX").text(e.pageX + "px");
+            $(".pageY").text(e.pageY + "px");
 
             gsap.to(cursor, {duration: 0.5, left: e.pageX-width, top: e.pageY-height});
         });
