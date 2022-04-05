@@ -237,5 +237,33 @@
         </ul>
     </div>
     <!-- //info -->
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        $(".moveImage").mousemove(function(e){
+            const cursor = $(".cursor");
+            
+
+            gsap.to(cursor, {duration: 0.2, left:e.pageX, top: e.pageY});
+
+            let pageX = e.pageX;
+            let pageY = e.pageY;
+
+            //기준점 가운데로 맞추기
+            const standardX = $(window).width()/2 - pageX;
+            const standardY = $(window).height()/2 - pageY;
+
+            //움직이기
+            $(".mImg img").attr({"style" : "transform : translate(" + standardX/20 +"px, " + standardY/20 + "px)"});
+            
+            // printOut
+            $(".pageX").text(e.pageX + "px");
+            $(".pageY").text(e.pageY + "px");
+            $(".standardX").text(standardX + "px");
+            $(".standardY").text(standardY + "px");
+            
+        });
+    </script>
 </body>
 </html>
