@@ -238,5 +238,34 @@
         </ul>
     </div>
     <!-- //info -->
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>  
+    <script>
+        function mouseEvent(e){
+
+            const cursor = document.querySelector(".cursor");
+            let pageX = e.pageX;
+            let pageY = e.pageY;
+
+            gsap.to(cursor, {duration: 0.3, left: pageX, top: pageY});
+
+            //기준점 센터로 설정
+            let standardX = window.innerWidth/2 - pageX;
+            let standardY = window.innerHeight/2 - pageY;
+
+            //move
+            const move = document.querySelector(".mImg img");
+            move.style.transform = "translate(" + standardX/20 + "px, " + standardY/20 + "px)"
+
+            // rintout
+            document.querySelector(".pageX").innerText = pageX + "px";
+            document.querySelector(".pageY").innerText = pageY + "px";
+            document.querySelector(".standardX").textContent = standardX + "px";
+            document.querySelector(".standardY").textContent = standardY + "px";
+
+        }
+
+        window.addEventListener("mousemove", mouseEvent)
+    </script>
 </body>
 </html>
